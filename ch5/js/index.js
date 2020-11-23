@@ -1,6 +1,5 @@
 /*
  * 乐购商城首页js
- * 2020-10-27 by 何雅新
  */
  //当页面加载完毕
  $(function (){
@@ -43,4 +42,58 @@ $('.ebooks .right-box ul > li').mouseenter(function () {
         $(this).find('.desc').show();    //显示详情
 })
 
-});
+
+
+
+
+/*服装tab切换*/
+$('.clothe .clothes-nav li').mouseenter(function () {
+
+})
+/*户外运动tab切换*/
+$('sports .clothes-nav li').mouseenter(function (){
+
+})
+/*童装tab切换*/
+$('children-clothes .clothes-nav li').mouseenter(function(){
+
+})
+
+/*推广商品切换*/
+$('.promotion .title ul li').mouseenter(function () {
+        //导航激活类的切换
+        $(this).addClass('active').siblings().removeClass('active')
+
+       //内容切换
+       //获取对应的索引
+       var index = $(this).index();
+
+
+       console.log(index)
+       console.log( $('.promotion .promotion-content .inner-box') )
+       //左右移动
+       $('.promotion .promotion-content .inner-box').animate({
+        'left': -index * 1170
+        }, 300)
+})
+
+/*返回顶部*/
+//绑定滚动事件
+$(document).scroll(function (){ 
+    //获取距离顶部的位置
+    var topDistance = $('html, body').scrollTop();
+    //判断
+    if (topDistance > 500) {
+        $('.backToTop').fadeIn();
+    }else{
+        $('.backToTop').fadeOut();
+    }
+})
+//返回顶部功能
+$('.backToTop').click(function () {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 300)
+})
+
+})
